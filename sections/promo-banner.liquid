@@ -1,0 +1,47 @@
+{% schema %}
+    {
+      "name": "Bannière Promo - Pléiades",
+      "settings": [
+        {
+          "type": "text",
+          "id": "promo_message",
+          "label": "Message promotionnel",
+          "default": "✨ Pléiades vous réserve une surprise ! Profitez d’une offre exclusive avant la fin du compte à rebours. 🚀"
+        },
+        {
+          "type": "text",
+          "id": "countdown_date",
+          "label": "Date de fin (YYYY-MM-DD)",
+          "default": "2025-12-31"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Lien du bouton"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Texte du bouton",
+          "default": "J'en profite"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Bannière Promo - Pléiades"
+        }
+      ]
+    }
+    {% endschema %}
+    
+    {{ 'promo-banner.css' | asset_url | stylesheet_tag }}
+    
+    <div class="promo-banner cosmic-bg p-4 text-white text-center rounded-lg" data-end-date="2025-12-31">
+    <p class="text-lg font-bold">✨ Pléiades vous réserve une surprise ! Profitez d’une offre exclusive avant la fin du compte à rebours. 🚀</p>
+    <p class="text-xl font-semibold mt-2 countdown-timer"></p>
+    <a href="#" class="mt-4 inline-block cosmic-button py-2 px-4 rounded-lg">J'en profite</a>
+</div>
+
+<script src="{{ 'promo-banner.js' | asset_url }}"></script>
+<link rel="stylesheet" href="{{ 'promo-banner.css' | asset_url }}">
+    
